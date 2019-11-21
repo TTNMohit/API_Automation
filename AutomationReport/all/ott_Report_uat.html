@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			ExtentReports Library 2.41.1 | http://relevantcodes.com/extentreports-for-selenium/ | https://github.com/anshooarora/
+			Copyright (c) 2015, Anshoo Arora (Relevant Codes) | Copyrights licensed under the New BSD License | http://opensource.org/licenses/BSD-3-Clause
+			Documentation: http://extentreports.relevantcodes.com 
+		-->
+
+		<meta charset='UTF-8' /> 
+		<meta name='description' content='ExtentReports (by Anshoo Arora) is a reporting library for automation testing for .NET and Java. It creates detailed and beautiful HTML reports for modern browsers. ExtentReports shows test and step summary along with dashboards, system and environment details for quick analysis of your tests.' />
+		<meta name='robots' content='noodp, noydir' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<meta name='extentx' id='extentx' content='' />
+		
+		<title>
+				TATASKY API AUTOMATION
+		</title>
+		
+		
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports/45123d736a03aca0abc5c4fcf1e746fef49736fd/cdn/extent.css' type='text/css' rel='stylesheet' />
+		
+		<style>
+				
+            
+                
+            
+        
+		</style>
+	</head>
+	
+	
+	<body class='extent default standard hide-overflow'>
+		<!-- nav -->
+		<nav>
+			<div class='logo-container blue darken-2'>
+				<a class='logo-content' href='http://extentreports.relevantcodes.com'>
+					<span>ExtentReports</span>
+				</a>
+				<a href='#' data-activates='slide-out' class='button-collapse hide-on-large-only'><i class='mdi-navigation-apps'></i></a>
+			</div>
+			<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+				<li class='analysis waves-effect active'><a href='#!' class='test-view' onclick="_updateCurrentStage(0)"><i class='mdi-action-dashboard'></i>Test Details</a></li>
+				<li class='analysis waves-effect'>
+					<a href='#!' onclick="_updateCurrentStage(-1)" class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a>
+				</li>
+			</ul>
+			<span class='report-name'>TATASKY API AUTOMATION REPORT</span> <span class='report-headline'></span>
+			<ul class='right hide-on-med-and-down nav-right'>
+				<li class='theme-selector' alt='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");' title='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");'>
+					<i class='mdi-hardware-desktop-windows'></i>
+				</li>
+				<li>
+					<span class='suite-started-time'>2018-12-05 17:23:14</span>
+				</li>
+				<li>
+					<span>v2.41.1</span>
+				</li>
+			</ul>
+		</nav>
+		<!-- /nav -->
+		
+		<!-- container -->
+		<div class='container'>
+			
+			<!-- dashboard -->
+			<div id='dashboard-view' class='row'>
+				<div class='time-totals'>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-tests'> 
+							<span class='panel-name'>Total Tests</span> 
+							<span class='total-tests'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-steps'> 
+							<span class='panel-name'>Total Steps</span> 
+							<span class='total-steps'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-current'> 
+							<span class='panel-name'>Total Time Taken (Current Run)</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 0m 7s+295ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-overall'> 
+							<span class='panel-name'>Total Time Taken (Overall)</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 0m 7s+295ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-start-time'>
+						<div class='card accent green-accent'> 
+							<span class='panel-name'>Start</span> 
+							<span class='panel-lead suite-started-time'>2018-12-05 17:23:06</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-end-time'>
+						<div class='card accent pink-accent'> 
+							<span class='panel-name'>End</span> 
+							<span class='panel-lead suite-ended-time'>2018-12-05 17:23:14</span> 
+						</div> 
+					</div>
+				</div>
+				<div class='charts'>
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Tests View</span>
+							</div> 
+							<div class='panel-setting modal-trigger test-count-setting right'>
+								<a href='#test-count-setting'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='test-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-pass-count weight-normal'></span> test(s) passed</span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-fail-count weight-normal'></span> test(s) failed, <span class='t-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div> 
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Steps View</span>
+							</div> 
+							<div class='panel-setting modal-trigger step-status-filter right'>
+								<a href='#step-status-filter'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='step-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-pass-count weight-normal'></span> step(s) passed </span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-fail-count weight-normal'></span> step(s) failed, <span class='s-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div>
+					<div class='col s12 m12 l4 fh'> 
+						<div class='card-panel'> 
+							<span class='panel-name'>Pass Percentage</span> 
+							<span class='pass-percentage panel-lead'></span> 
+							<div class='progress light-blue lighten-3'> 
+								<div class='determinate light-blue'></div> 
+							</div> 
+						</div> 
+					</div>
+				</div>
+				<div class='system-view'>
+					<div class='col l4 m12 s12'>
+						<div class='card-panel'>
+							<span class='label info outline right'>Environment</span>
+							<table>
+								<thead>
+									<tr>
+										<th>Param</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td>User Name</td>
+											<td>abhishek</td>
+										</tr>
+										<tr>
+											<td>OS</td>
+											<td>Linux</td>
+										</tr>
+										<tr>
+											<td>Java Version</td>
+											<td>1.8.0_171</td>
+										</tr>
+										<tr>
+											<td>Host Name</td>
+											<td>abhishek-Aspire-V5-573G</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /dashboard -->
+			
+			<!-- tests -->
+			<div id='test-view' class='row _addedTable'>
+				<div class='col _addedCell1'>
+					<div class='contents'>
+						<div class='card-panel heading'>
+							<h5>Tests</h5>
+						</div>
+						<div class='card-panel filters'>
+							<div>
+								<a class='dropdown-button btn-floating btn-small waves-effect waves-light grey tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+									<i class='mdi-action-reorder'></i>
+								</a>
+								<ul id='tests-toggle' class='dropdown-content'>
+									<li class='pass'><a href='#!'>Pass</a></li>
+									<li class='fail'><a href='#!'>Fail</a></li>
+									<li class='skip'><a href='#!'>Skip</a></li>
+									<li class='divider'></li>
+									<li class='clear'><a href='#!'>Clear Filters</a></li>
+								</ul>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+									<i class='mdi-navigation-close'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='enableDashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+									<i class='mdi-action-track-changes'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light blue enabled' id='refreshCharts' alt='Refresh Charts on Filters' title='Refresh Charts on Filters'>
+									<i class='mdi-navigation-refresh'></i>
+								</a>
+							</div>
+							<div class='search' alt='Search Tests' title='Search Tests'>
+								<div class='input-field left'>
+									<input id='searchTests' type='text' class='validate' placeholder='Search Tests...'>
+								</div>
+								<a href="#" class='btn-floating btn-small waves-effect waves-light grey'>
+									<i class='mdi-action-search'></i>
+								</a>
+							</div>
+						</div>
+						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
+							<div class='wrapper'>
+								<ul id='test-collection' class='test-collection'>
+										<li class='collection-item test displayed active pass ' extentid='5a92582e-5f49-453e-a610-6569006dc12e'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: addProfileTest </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:09</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:10</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+450ms</span>
+												</div>
+												<div class='test-desc'>addProfileTest</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:09</td>
+																	<td class='step-details'>Add Profile</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:09</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/profiles}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Profile added successfully.","data":{"profileId":"22c58fed-823f-4f5d-adbd-bdfa6b8baacc"}}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>Expected Keys - "profileId","data","message","code"</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "profileId","data","message","code",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Profile added successfully.","data":{"profileId":"22c58fed-823f-4f5d-adbd-bdfa6b8baacc"}}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='024097ff-5f7e-48b8-9338-43d7bb253d6c'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: categoryList </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:10</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:11</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+802ms</span>
+												</div>
+												<div class='test-desc'>categoryList</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>Category Channel_List</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:10</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/genres}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Category List fetched successfully.","data":[{"id":1,"title":"News & Knowledge"},{"id":2,"title":"Regional"},{"id":3,"title":"Sports"},{"id":4,"title":"Music & Audio"},{"id":5,"title":"Hindi"},{"id":6,"title":"English"},{"id":7,"title":"News"},{"id":8,"title":"Gujarati"},{"id":9,"title":"Kannada"},{"id":10,"title":"Telugu"},{"id":11,"title":"Tamil"},{"id":12,"title":"Odia"},{"id":13,"title":"Movies"},{"id":15,"title":"Others"},{"id":16,"title":"Punjabi"},{"id":17,"title":"Entertainment"},{"id":18,"title":"Kids"},{"id":19,"title":"Bengali"},{"id":20,"title":"Default"},{"id":21,"title":"Malayalam"},{"id":22,"title":"Animals"},{"id":23,"title":"Big Animals"},{"id":24,"title":"Test1"},{"id":25,"title":"Creative"},{"id":26,"title":"Western"},{"id":27,"title":"Musical"},{"id":28,"title":"Docu-Feature"},{"id":29,"title":"Historical"},{"id":30,"title":"Social"},{"id":31,"title":"Funny"},{"id":32,"title":"Inspiration"},{"id":33,"title":"Mind Blowing"},{"id":34,"title":"Educational"},{"id":35,"title":"Knowledge"},{"id":36,"title":"Music"},{"id":38,"title":"Family"},{"id":39,"title":"Biography"},{"id":40,"title":"Action"},{"id":41,"title":"Adventure"},{"id":42,"title":"Animation"},{"id":43,"title":"Comedy"},{"id":44,"title":"Crime"},{"id":45,"title":"Dance"},{"id":46,"title":"Documentary"},{"id":47,"title":"Fantasy"},{"id":48,"title":"History"},{"id":49,"title":"Horror"},{"id":50,"title":"Mystery"},{"id":51,"title":"Romance"},{"id":52,"title":"Sci-Fi"},{"id":53,"title":"Thriller"},{"id":54,"title":"War"},{"id":55,"title":"Drama"},{"id":57,"title":"Athletics"},{"id":58,"title":"Basketball"},{"id":59,"title":"Big Science"},{"id":60,"title":"Boxing"},{"id":61,"title":"Chat"},{"id":62,"title":"Chat Show"},{"id":63,"title":"Art"},{"id":64,"title":"Astrology"},{"id":65,"title":"Business"},{"id":66,"title":"Cartoons"},{"id":67,"title":"Children"},{"id":68,"title":"Classic"},{"id":69,"title":"Classics"},{"id":70,"title":"Cooking"},{"id":71,"title":"Cricket"},{"id":72,"title":"Culture"},{"id":73,"title":"Default Sub Genre"},{"id":74,"title":"Detective"},{"id":75,"title":"Devotional"},{"id":76,"title":"Fashion"},{"id":77,"title":"Filmy"},{"id":78,"title":"Game Show"},{"id":79,"title":"Gangstory"},{"id":80,"title":"Golf"},{"id":81,"title":"Gymnastics"},{"id":82,"title":"HD"},{"id":83,"title":"Football"},{"id":84,"title":"Hockey"},{"id":85,"title":"Investigation"},{"id":86,"title":"Kids & Family"},{"id":87,"title":"Lifestyle"},{"id":88,"title":"Murder"},{"id":89,"title":"Mythology"},{"id":90,"title":"Oriya"},{"id":91,"title":"Other"},{"id":92,"title":"People"},{"id":93,"title":"Pop"},{"id":94,"title":"Pre-School"},{"id":95,"title":"Racing"},{"id":96,"title":"Real Life"},{"id":97,"title":"Religious"},{"id":98,"title":"Request"},{"id":99,"title":"Sci - Fi"},{"id":100,"title":"Science"},{"id":101,"title":"Shopping"},{"id":102,"title":"Snooker"},{"id":103,"title":"Soccer"},{"id":104,"title":"Specials"},{"id":105,"title":"Spiritual"},{"id":106,"title":"Suspense"},{"id":107,"title":"Talent"},{"id":108,"title":"Show Biz"},{"id":109,"title":"Tech & Engineering"},{"id":110,"title":"Technology"},{"id":111,"title":"Tennis"},{"id":112,"title":"Travel"},{"id":113,"title":"Travel & Adventure"},{"id":114,"title":"Under 5's"},{"id":115,"title":"Water Sport"},{"id":116,"title":"Wheels"},{"id":117,"title":"Wildlife"},{"id":118,"title":"Nature"},{"id":119,"title":"Wrestling"},{"id":120,"title":"Inspirational"},{"id":121,"title":"Suspense"},{"id":122,"title":"Comedy"},{"id":123,"title":"Thriller"},{"id":124,"title":"Action"},{"id":125,"title":"Romantic"},{"id":126,"title":"Emotional"},{"id":127,"title":"Motivational"},{"id":128,"title":"Drama"},{"id":129,"title":"Romance"},{"id":130,"title":"Social"},{"id":131,"title":"Crime"},{"id":132,"title":"Fantasy"},{"id":133,"title":"History"},{"id":134,"title":"Musical"},{"id":135,"title":"Adventure"},{"id":136,"title":"Biography"},{"id":137,"title":"Mystery"},{"id":138,"title":"Patriotic"},{"id":139,"title":"Mythology"},{"id":140,"title":"Family"},{"id":141,"title":"Horror"},{"id":142,"title":"Devotional"},{"id":143,"title":"Sports"},{"id":144,"title":"Love"},{"id":145,"title":"Sci-Fi"},{"id":146,"title":"Documentary"},{"id":147,"title":"Animation"},{"id":148,"title":"Adult"},{"id":149,"title":"Kids"},{"id":150,"title":"War"},{"id":151,"title":"Fiction"},{"id":152,"title":"Children's Music"},{"id":153,"title":"Poem"},{"id":154,"title":"Entertainment"},{"id":155,"title":"Lifestyle"},{"id":156,"title":"Dance"},{"id":157,"title":""},{"id":158,"title":"Music"},{"id":159,"title":"Movies"},{"id":160,"title":"Video"},{"id":161,"title":"Videos"},{"id":162,"title":"Movie"},{"id":172,"title":"Yoga"},{"id":173,"title":"Live Feed"},{"id":174,"title":"Meditation"},{"id":175,"title":"Special"},{"id":176,"title":"Shrines"},{"id":177,"title":"Living"},{"id":178,"title":"Gurus"},{"id":179,"title":"Gurudwaras"},{"id":180,"title":"Churches"},{"id":181,"title":"Mosques"},{"id":182,"title":"Temples"},{"id":183,"title":"Spiritual Discourses/Talks"},{"id":184,"title":"Automobiles"},{"id":185,"title":"Events"},{"id":186,"title":"Gadgets"},{"id":187,"title":"Home Store"},{"id":188,"title":"Gifts"},{"id":189,"title":"Wedding"},{"id":190,"title":"Footwear"},{"id":191,"title":"Electronics"},{"id":192,"title":"Mobiles"},{"id":193,"title":"Household Appliances"},{"id":194,"title":"Clothes"},{"id":195,"title":"Destinations"},{"id":196,"title":"Countryside"},{"id":197,"title":"Cookery Show"},{"id":198,"title":"Reality Shows"},{"id":199,"title":"Talent Show"},{"id":200,"title":"Reality Show"},{"id":201,"title":"Weddings"},{"id":202,"title":"Luxury"},{"id":203,"title":"Style"},{"id":204,"title":"Vacation"},{"id":205,"title":"Countries"},{"id":206,"title":"Cities"},{"id":207,"title":"Jazz"},{"id":208,"title":"Ghazal"},{"id":209,"title":"Hotels"},{"id":210,"title":"Food"},{"id":211,"title":"Bhojpuri"},{"id":212,"title":"Assamese"},{"id":222,"title":"Special Report"},{"id":223,"title":"People & Culture"},{"id":224,"title":"Environment & Space"},{"id":225,"title":"Health And Fitness"},{"id":226,"title":"Historical"},{"id":227,"title":"Nature & Wildlife"},{"id":228,"title":"Travel & Adventure"},{"id":229,"title":"Automobiles"},{"id":230,"title":"Science & Tech"},{"id":231,"title":"Concert"},{"id":232,"title":"Recipes"},{"id":233,"title":"Mythological"},{"id":236,"title":"Medical Science"},{"id":237,"title":"Regional Music"},{"id":238,"title":"Bollywood"},{"id":239,"title":"Agriculture & Farming"},{"id":240,"title":"Health & Fitness"},{"id":241,"title":"Psychological Thriller"},{"id":242,"title":"Psychological Crime Drama"},{"id":244,"title":"Swimming"},{"id":245,"title":"Countdown"},{"id":246,"title":"Science & Technology"},{"id":247,"title":"Politics"},{"id":248,"title":"Coundown"},{"id":249,"title":"Talks"},{"id":250,"title":"Table Tennis"},{"id":254,"title":"MM"},{"id":255,"title":"Engineering"},{"id":256,"title":"Engineering1"},{"id":257,"title":"Award Show"},{"id":258,"title":"Award Shows"},{"id":259,"title":"Badminton"},{"id":261,"title":"Body Science"},{"id":262,"title":"Buisness"},{"id":265,"title":"Classical"},{"id":266,"title":"Concert"},{"id":268,"title":"Dance Show"},{"id":270,"title":"Debate Show"},{"id":271,"title":"Education"},{"id":272,"title":"Events & Festivals"},{"id":273,"title":"Feature"},{"id":274,"title":"Finance & Economics"},{"id":278,"title":"Kabaddi"},{"id":283,"title":"Other Sports"},{"id":286,"title":"Real Estate"},{"id":291,"title":"Showbiz"},{"id":292,"title":"Space"},{"id":296,"title":"Spiritual Discourses"},{"id":298,"title":"Talk Show"},{"id":303,"title":"Music Show"},{"id":304,"title":"Comedy"},{"id":305,"title":"Kids"},{"id":306,"title":"Talk Show"},{"id":307,"title":"Astro"},{"id":308,"title":"Action"},{"id":309,"title":"QAGenre"},{"id":310,"title":"Infotainment"},{"id":311,"title":"Serials"},{"id":312,"title":"News"},{"id":313,"title":"Astrology"},{"id":314,"title":"Devotional"},{"id":315,"title":"Lifestyle"},{"id":316,"title":"Cooking Show"},{"id":317,"title":"Folk"},{"id":318,"title":"Reality Show"},{"id":319,"title":"Thriller"},{"id":320,"title":"Specials"},{"id":321,"title":"Entertainment"},{"id":322,"title":"Drama"},{"id":323,"title":"Romance"},{"id":324,"title":"Romantic Comedy"},{"id":325,"title":"Party"},{"id":326,"title":"Dance"},{"id":327,"title":"Melody"},{"id":328,"title":"Theme"},{"id":329,"title":"Interview"},{"id":330,"title":"Comedy Drama"},{"id":331,"title":"Romace"},{"id":332,"title":"TV Shows"},{"id":333,"title":"Comedy Shows"},{"id":334,"title":"Sports"},{"id":335,"title":"TalkShow"},{"id":336,"title":"Patriotic"},{"id":337,"title":"Crime"},{"id":338,"title":"Music"},{"id":339,"title":"Celeb Interviews"},{"id":340,"title":"Food and Health"},{"id":341,"title":"Melody(Happy/Sad )"},{"id":342,"title":"Horror"},{"id":343,"title":"Classical"},{"id":344,"title":"Inspirational"},{"id":345,"title":"Melody(Happy)"},{"id":346,"title":"Family Drama"},{"id":347,"title":"Mythology"},{"id":348,"title":"Fantasy"},{"id":349,"title":"Melody(Happy/Sad)"},{"id":350,"title":"Family"},{"id":351,"title":"Tamil"},{"id":352,"title":"saying"},{"id":353,"title":"Children"},{"id":354,"title":"Science & Tech"},{"id":355,"title":"Art  & Culture"},{"id":356,"title":"Vacation &  Destinations"},{"id":362,"title":"Art & Culture"},{"id":392,"title":"Environment"},{"id":393,"title":"Art & Culture"},{"id":394,"title":"Festivals"},{"id":396,"title":"Title So"},{"id":397,"title":"Mythology"},{"id":398,"title":"Romance"},{"id":399,"title":"Thriller"},{"id":400,"title":"Drama"},{"id":401,"title":"Action"},{"id":402,"title":"Documentary"},{"id":403,"title":"test_28jun"},{"id":404,"title":"Comedy"},{"id":405,"title":"Horror"},{"id":406,"title":"Family"},{"id":407,"title":"Biopic"},{"id":408,"title":"Kids"},{"id":409,"title":"Crime"},{"id":410,"title":"LifeStyle"},{"id":411,"title":"Science"},{"id":412,"title":"Wildlife"},{"id":413,"title":"Travel"},{"id":414,"title":"TalkShow"},{"id":415,"title":"Reality"}]}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Expected Keys - "data","message","code","id","title","Category List fetched successfully."</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code","id","title","Category List fetched successfully.",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Category List fetched successfully.","data":[{"id":1,"title":"News & Knowledge"},{"id":2,"title":"Regional"},{"id":3,"title":"Sports"},{"id":4,"title":"Music & Audio"},{"id":5,"title":"Hindi"},{"id":6,"title":"English"},{"id":7,"title":"News"},{"id":8,"title":"Gujarati"},{"id":9,"title":"Kannada"},{"id":10,"title":"Telugu"},{"id":11,"title":"Tamil"},{"id":12,"title":"Odia"},{"id":13,"title":"Movies"},{"id":15,"title":"Others"},{"id":16,"title":"Punjabi"},{"id":17,"title":"Entertainment"},{"id":18,"title":"Kids"},{"id":19,"title":"Bengali"},{"id":20,"title":"Default"},{"id":21,"title":"Malayalam"},{"id":22,"title":"Animals"},{"id":23,"title":"Big Animals"},{"id":24,"title":"Test1"},{"id":25,"title":"Creative"},{"id":26,"title":"Western"},{"id":27,"title":"Musical"},{"id":28,"title":"Docu-Feature"},{"id":29,"title":"Historical"},{"id":30,"title":"Social"},{"id":31,"title":"Funny"},{"id":32,"title":"Inspiration"},{"id":33,"title":"Mind Blowing"},{"id":34,"title":"Educational"},{"id":35,"title":"Knowledge"},{"id":36,"title":"Music"},{"id":38,"title":"Family"},{"id":39,"title":"Biography"},{"id":40,"title":"Action"},{"id":41,"title":"Adventure"},{"id":42,"title":"Animation"},{"id":43,"title":"Comedy"},{"id":44,"title":"Crime"},{"id":45,"title":"Dance"},{"id":46,"title":"Documentary"},{"id":47,"title":"Fantasy"},{"id":48,"title":"History"},{"id":49,"title":"Horror"},{"id":50,"title":"Mystery"},{"id":51,"title":"Romance"},{"id":52,"title":"Sci-Fi"},{"id":53,"title":"Thriller"},{"id":54,"title":"War"},{"id":55,"title":"Drama"},{"id":57,"title":"Athletics"},{"id":58,"title":"Basketball"},{"id":59,"title":"Big Science"},{"id":60,"title":"Boxing"},{"id":61,"title":"Chat"},{"id":62,"title":"Chat Show"},{"id":63,"title":"Art"},{"id":64,"title":"Astrology"},{"id":65,"title":"Business"},{"id":66,"title":"Cartoons"},{"id":67,"title":"Children"},{"id":68,"title":"Classic"},{"id":69,"title":"Classics"},{"id":70,"title":"Cooking"},{"id":71,"title":"Cricket"},{"id":72,"title":"Culture"},{"id":73,"title":"Default Sub Genre"},{"id":74,"title":"Detective"},{"id":75,"title":"Devotional"},{"id":76,"title":"Fashion"},{"id":77,"title":"Filmy"},{"id":78,"title":"Game Show"},{"id":79,"title":"Gangstory"},{"id":80,"title":"Golf"},{"id":81,"title":"Gymnastics"},{"id":82,"title":"HD"},{"id":83,"title":"Football"},{"id":84,"title":"Hockey"},{"id":85,"title":"Investigation"},{"id":86,"title":"Kids & Family"},{"id":87,"title":"Lifestyle"},{"id":88,"title":"Murder"},{"id":89,"title":"Mythology"},{"id":90,"title":"Oriya"},{"id":91,"title":"Other"},{"id":92,"title":"People"},{"id":93,"title":"Pop"},{"id":94,"title":"Pre-School"},{"id":95,"title":"Racing"},{"id":96,"title":"Real Life"},{"id":97,"title":"Religious"},{"id":98,"title":"Request"},{"id":99,"title":"Sci - Fi"},{"id":100,"title":"Science"},{"id":101,"title":"Shopping"},{"id":102,"title":"Snooker"},{"id":103,"title":"Soccer"},{"id":104,"title":"Specials"},{"id":105,"title":"Spiritual"},{"id":106,"title":"Suspense"},{"id":107,"title":"Talent"},{"id":108,"title":"Show Biz"},{"id":109,"title":"Tech & Engineering"},{"id":110,"title":"Technology"},{"id":111,"title":"Tennis"},{"id":112,"title":"Travel"},{"id":113,"title":"Travel & Adventure"},{"id":114,"title":"Under 5's"},{"id":115,"title":"Water Sport"},{"id":116,"title":"Wheels"},{"id":117,"title":"Wildlife"},{"id":118,"title":"Nature"},{"id":119,"title":"Wrestling"},{"id":120,"title":"Inspirational"},{"id":121,"title":"Suspense"},{"id":122,"title":"Comedy"},{"id":123,"title":"Thriller"},{"id":124,"title":"Action"},{"id":125,"title":"Romantic"},{"id":126,"title":"Emotional"},{"id":127,"title":"Motivational"},{"id":128,"title":"Drama"},{"id":129,"title":"Romance"},{"id":130,"title":"Social"},{"id":131,"title":"Crime"},{"id":132,"title":"Fantasy"},{"id":133,"title":"History"},{"id":134,"title":"Musical"},{"id":135,"title":"Adventure"},{"id":136,"title":"Biography"},{"id":137,"title":"Mystery"},{"id":138,"title":"Patriotic"},{"id":139,"title":"Mythology"},{"id":140,"title":"Family"},{"id":141,"title":"Horror"},{"id":142,"title":"Devotional"},{"id":143,"title":"Sports"},{"id":144,"title":"Love"},{"id":145,"title":"Sci-Fi"},{"id":146,"title":"Documentary"},{"id":147,"title":"Animation"},{"id":148,"title":"Adult"},{"id":149,"title":"Kids"},{"id":150,"title":"War"},{"id":151,"title":"Fiction"},{"id":152,"title":"Children's Music"},{"id":153,"title":"Poem"},{"id":154,"title":"Entertainment"},{"id":155,"title":"Lifestyle"},{"id":156,"title":"Dance"},{"id":157,"title":""},{"id":158,"title":"Music"},{"id":159,"title":"Movies"},{"id":160,"title":"Video"},{"id":161,"title":"Videos"},{"id":162,"title":"Movie"},{"id":172,"title":"Yoga"},{"id":173,"title":"Live Feed"},{"id":174,"title":"Meditation"},{"id":175,"title":"Special"},{"id":176,"title":"Shrines"},{"id":177,"title":"Living"},{"id":178,"title":"Gurus"},{"id":179,"title":"Gurudwaras"},{"id":180,"title":"Churches"},{"id":181,"title":"Mosques"},{"id":182,"title":"Temples"},{"id":183,"title":"Spiritual Discourses/Talks"},{"id":184,"title":"Automobiles"},{"id":185,"title":"Events"},{"id":186,"title":"Gadgets"},{"id":187,"title":"Home Store"},{"id":188,"title":"Gifts"},{"id":189,"title":"Wedding"},{"id":190,"title":"Footwear"},{"id":191,"title":"Electronics"},{"id":192,"title":"Mobiles"},{"id":193,"title":"Household Appliances"},{"id":194,"title":"Clothes"},{"id":195,"title":"Destinations"},{"id":196,"title":"Countryside"},{"id":197,"title":"Cookery Show"},{"id":198,"title":"Reality Shows"},{"id":199,"title":"Talent Show"},{"id":200,"title":"Reality Show"},{"id":201,"title":"Weddings"},{"id":202,"title":"Luxury"},{"id":203,"title":"Style"},{"id":204,"title":"Vacation"},{"id":205,"title":"Countries"},{"id":206,"title":"Cities"},{"id":207,"title":"Jazz"},{"id":208,"title":"Ghazal"},{"id":209,"title":"Hotels"},{"id":210,"title":"Food"},{"id":211,"title":"Bhojpuri"},{"id":212,"title":"Assamese"},{"id":222,"title":"Special Report"},{"id":223,"title":"People & Culture"},{"id":224,"title":"Environment & Space"},{"id":225,"title":"Health And Fitness"},{"id":226,"title":"Historical"},{"id":227,"title":"Nature & Wildlife"},{"id":228,"title":"Travel & Adventure"},{"id":229,"title":"Automobiles"},{"id":230,"title":"Science & Tech"},{"id":231,"title":"Concert"},{"id":232,"title":"Recipes"},{"id":233,"title":"Mythological"},{"id":236,"title":"Medical Science"},{"id":237,"title":"Regional Music"},{"id":238,"title":"Bollywood"},{"id":239,"title":"Agriculture & Farming"},{"id":240,"title":"Health & Fitness"},{"id":241,"title":"Psychological Thriller"},{"id":242,"title":"Psychological Crime Drama"},{"id":244,"title":"Swimming"},{"id":245,"title":"Countdown"},{"id":246,"title":"Science & Technology"},{"id":247,"title":"Politics"},{"id":248,"title":"Coundown"},{"id":249,"title":"Talks"},{"id":250,"title":"Table Tennis"},{"id":254,"title":"MM"},{"id":255,"title":"Engineering"},{"id":256,"title":"Engineering1"},{"id":257,"title":"Award Show"},{"id":258,"title":"Award Shows"},{"id":259,"title":"Badminton"},{"id":261,"title":"Body Science"},{"id":262,"title":"Buisness"},{"id":265,"title":"Classical"},{"id":266,"title":"Concert"},{"id":268,"title":"Dance Show"},{"id":270,"title":"Debate Show"},{"id":271,"title":"Education"},{"id":272,"title":"Events & Festivals"},{"id":273,"title":"Feature"},{"id":274,"title":"Finance & Economics"},{"id":278,"title":"Kabaddi"},{"id":283,"title":"Other Sports"},{"id":286,"title":"Real Estate"},{"id":291,"title":"Showbiz"},{"id":292,"title":"Space"},{"id":296,"title":"Spiritual Discourses"},{"id":298,"title":"Talk Show"},{"id":303,"title":"Music Show"},{"id":304,"title":"Comedy"},{"id":305,"title":"Kids"},{"id":306,"title":"Talk Show"},{"id":307,"title":"Astro"},{"id":308,"title":"Action"},{"id":309,"title":"QAGenre"},{"id":310,"title":"Infotainment"},{"id":311,"title":"Serials"},{"id":312,"title":"News"},{"id":313,"title":"Astrology"},{"id":314,"title":"Devotional"},{"id":315,"title":"Lifestyle"},{"id":316,"title":"Cooking Show"},{"id":317,"title":"Folk"},{"id":318,"title":"Reality Show"},{"id":319,"title":"Thriller"},{"id":320,"title":"Specials"},{"id":321,"title":"Entertainment"},{"id":322,"title":"Drama"},{"id":323,"title":"Romance"},{"id":324,"title":"Romantic Comedy"},{"id":325,"title":"Party"},{"id":326,"title":"Dance"},{"id":327,"title":"Melody"},{"id":328,"title":"Theme"},{"id":329,"title":"Interview"},{"id":330,"title":"Comedy Drama"},{"id":331,"title":"Romace"},{"id":332,"title":"TV Shows"},{"id":333,"title":"Comedy Shows"},{"id":334,"title":"Sports"},{"id":335,"title":"TalkShow"},{"id":336,"title":"Patriotic"},{"id":337,"title":"Crime"},{"id":338,"title":"Music"},{"id":339,"title":"Celeb Interviews"},{"id":340,"title":"Food and Health"},{"id":341,"title":"Melody(Happy/Sad )"},{"id":342,"title":"Horror"},{"id":343,"title":"Classical"},{"id":344,"title":"Inspirational"},{"id":345,"title":"Melody(Happy)"},{"id":346,"title":"Family Drama"},{"id":347,"title":"Mythology"},{"id":348,"title":"Fantasy"},{"id":349,"title":"Melody(Happy/Sad)"},{"id":350,"title":"Family"},{"id":351,"title":"Tamil"},{"id":352,"title":"saying"},{"id":353,"title":"Children"},{"id":354,"title":"Science & Tech"},{"id":355,"title":"Art  & Culture"},{"id":356,"title":"Vacation &  Destinations"},{"id":362,"title":"Art & Culture"},{"id":392,"title":"Environment"},{"id":393,"title":"Art & Culture"},{"id":394,"title":"Festivals"},{"id":396,"title":"Title So"},{"id":397,"title":"Mythology"},{"id":398,"title":"Romance"},{"id":399,"title":"Thriller"},{"id":400,"title":"Drama"},{"id":401,"title":"Action"},{"id":402,"title":"Documentary"},{"id":403,"title":"test_28jun"},{"id":404,"title":"Comedy"},{"id":405,"title":"Horror"},{"id":406,"title":"Family"},{"id":407,"title":"Biopic"},{"id":408,"title":"Kids"},{"id":409,"title":"Crime"},{"id":410,"title":"LifeStyle"},{"id":411,"title":"Science"},{"id":412,"title":"Wildlife"},{"id":413,"title":"Travel"},{"id":414,"title":"TalkShow"},{"id":415,"title":"Reality"}]}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5c8bd9e2-bf65-4b9e-beea-8e87b37f3b7c'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: editProfileTest </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:11</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:11</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+383ms</span>
+												</div>
+												<div class='test-desc'>editProfileTest</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Edit Profile</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/profiles/}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Profile edited successfully.","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Expected Keys - "data","message","code"</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Profile edited successfully.","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='897be306-8708-4ab6-b0e7-2aea22d87075'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: languageList </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:11</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:11</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+335ms</span>
+												</div>
+												<div class='test-desc'>languageList</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Language Channel_List</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/languages}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Language List fetched successfully.","data":[{"id":1,"name":"Malayalam"},{"id":2,"name":"Hindi"},{"id":3,"name":"English"},{"id":4,"name":"Telugu"},{"id":5,"name":"Tamil"},{"id":6,"name":"Bengali"},{"id":7,"name":"punjabi"},{"id":8,"name":"Marathi"},{"id":9,"name":"Odia"},{"id":10,"name":"Assamese"},{"id":11,"name":"Kannada"},{"id":12,"name":"Gujarati"},{"id":13,"name":"Odiya"},{"id":14,"name":"English."},{"id":15,"name":"Punjabi"},{"id":16,"name":"Bhojpuri"},{"id":17,"name":"Nepali"},{"id":18,"name":"Urdu"},{"id":20,"name":"Bangla"},{"id":21,"name":"english"},{"id":22,"name":"French"},{"id":23,"name":"hindi"},{"id":24,"name":"Englishi"},{"id":25,"name":"Spanish"},{"id":26,"name":"Oriya"},{"id":27,"name":"Japanese"},{"id":28,"name":"Manipuri"},{"id":29,"name":"Mizo"}]}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Expected Keys - "data","message","code","id","name","Language List fetched successfully."</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code","id","name","Language List fetched successfully.",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Language List fetched successfully.","data":[{"id":1,"name":"Malayalam"},{"id":2,"name":"Hindi"},{"id":3,"name":"English"},{"id":4,"name":"Telugu"},{"id":5,"name":"Tamil"},{"id":6,"name":"Bengali"},{"id":7,"name":"punjabi"},{"id":8,"name":"Marathi"},{"id":9,"name":"Odia"},{"id":10,"name":"Assamese"},{"id":11,"name":"Kannada"},{"id":12,"name":"Gujarati"},{"id":13,"name":"Odiya"},{"id":14,"name":"English."},{"id":15,"name":"Punjabi"},{"id":16,"name":"Bhojpuri"},{"id":17,"name":"Nepali"},{"id":18,"name":"Urdu"},{"id":20,"name":"Bangla"},{"id":21,"name":"english"},{"id":22,"name":"French"},{"id":23,"name":"hindi"},{"id":24,"name":"Englishi"},{"id":25,"name":"Spanish"},{"id":26,"name":"Oriya"},{"id":27,"name":"Japanese"},{"id":28,"name":"Manipuri"},{"id":29,"name":"Mizo"}]}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='3c78a9f8-f84a-4e1a-a429-7ecb45ec1184'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: listOfProfileTest </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:11</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:12</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+327ms</span>
+												</div>
+												<div class='test-desc'>listOfProfileTest</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>list of Profile</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:11</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/profiles}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Profile fetched successfully.","data":{"profiles":[{"id":"cb2df890-4a84-4e00-8884-5863fc49b468","subscriberId":"3000943856","profileName":"p2XaTxL3","ageGroup":"13-18","gender":"Male","profilePic":"HM 2LTE-IN","isDefaultProfile":true,"isKidsProfile":false,"isDeleted":false,"languages":[],"categories":[]},{"id":"22c58fed-823f-4f5d-adbd-bdfa6b8baacc","subscriberId":"3000943856","profileName":"qTcoJSJI","ageGroup":"18-25","gender":"Female","profilePic":"HM 2LTE-IN","isDefaultProfile":false,"isKidsProfile":false,"isDeleted":false,"languages":[],"categories":[]}],"isPLExist":true}}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Expected Keys - "profileId","data","message","code","id",
+"subscriberId","profileName","ageGroup",
+"gender","profilePic","isDefaultProfile",
+"isKidsProfile","isDeleted","languages","categories"</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code","id",
+"subscriberId","profileName","ageGroup",
+"gender","profilePic","isDefaultProfile",
+"isKidsProfile","isDeleted","languages","categories",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:  
+"profileId",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Profile fetched successfully.","data":{"profiles":[{"id":"cb2df890-4a84-4e00-8884-5863fc49b468","subscriberId":"3000943856","profileName":"p2XaTxL3","ageGroup":"13-18","gender":"Male","profilePic":"HM 2LTE-IN","isDefaultProfile":true,"isKidsProfile":false,"isDeleted":false,"languages":[],"categories":[]},{"id":"22c58fed-823f-4f5d-adbd-bdfa6b8baacc","subscriberId":"3000943856","profileName":"qTcoJSJI","ageGroup":"18-25","gender":"Female","profilePic":"HM 2LTE-IN","isDefaultProfile":false,"isKidsProfile":false,"isDeleted":false,"languages":[],"categories":[]}],"isPLExist":true}}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='b31cf92a-bdb6-46fb-bc90-956476fd06fc'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: parentalLock </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:12</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:12</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+359ms</span>
+												</div>
+												<div class='test-desc'>parentalLock</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Parental Lock</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/parental/lock, ParentalLock=4321}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Parental lock code updated successfully.","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Expected Keys - "data","message","code","Parental lock code updated successfully."</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code","Parental lock code updated successfully.",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Parental lock code updated successfully.","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1536784c-19b3-478a-b70e-eded8698c70c'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: preferenceList </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:12</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:12</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+342ms</span>
+												</div>
+												<div class='test-desc'>preferenceList</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Preference  Channel_List</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api//v1/subscribers/3000943856/profile/preferences}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Preferences List fetched successfully.","data":{"languages":[{"id":10,"name":"Assamese"},{"id":20,"name":"Bangla"},{"id":6,"name":"Bengali"},{"id":16,"name":"Bhojpuri"},{"id":3,"name":"English"},{"id":21,"name":"english"},{"id":14,"name":"English."},{"id":24,"name":"Englishi"},{"id":22,"name":"French"},{"id":12,"name":"Gujarati"},{"id":2,"name":"Hindi"},{"id":23,"name":"hindi"},{"id":27,"name":"Japanese"},{"id":11,"name":"Kannada"},{"id":1,"name":"Malayalam"},{"id":28,"name":"Manipuri"},{"id":8,"name":"Marathi"},{"id":29,"name":"Mizo"},{"id":17,"name":"Nepali"},{"id":9,"name":"Odia"},{"id":13,"name":"Odiya"},{"id":26,"name":"Oriya"},{"id":7,"name":"punjabi"},{"id":15,"name":"Punjabi"},{"id":25,"name":"Spanish"},{"id":5,"name":"Tamil"},{"id":4,"name":"Telugu"},{"id":18,"name":"Urdu"}],"categories":[{"id":40,"title":"Action"},{"id":19,"title":"Bengali"},{"id":25,"title":"Creative"},{"id":20,"title":"Default"},{"id":6,"title":"English"},{"id":17,"title":"Entertainment"},{"id":5,"title":"Hindi"},{"id":49,"title":"Horror"},{"id":9,"title":"Kannada"},{"id":18,"title":"Kids"},{"id":21,"title":"Malayalam"},{"id":254,"title":"MM"},{"id":13,"title":"Movies"},{"id":4,"title":"Music & Audio"},{"id":7,"title":"News"},{"id":1,"title":"News & Knowledge"},{"id":12,"title":"Odia"},{"id":15,"title":"Others"},{"id":16,"title":"Punjabi"},{"id":2,"title":"Regional"},{"id":3,"title":"Sports"},{"id":11,"title":"Tamil"},{"id":10,"title":"Telugu"}]}}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Expected Keys - "data","message","code","id","name","languages","Preferences List fetched successfully."</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code","id","name","languages","Preferences List fetched successfully.",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Preferences List fetched successfully.","data":{"languages":[{"id":10,"name":"Assamese"},{"id":20,"name":"Bangla"},{"id":6,"name":"Bengali"},{"id":16,"name":"Bhojpuri"},{"id":3,"name":"English"},{"id":21,"name":"english"},{"id":14,"name":"English."},{"id":24,"name":"Englishi"},{"id":22,"name":"French"},{"id":12,"name":"Gujarati"},{"id":2,"name":"Hindi"},{"id":23,"name":"hindi"},{"id":27,"name":"Japanese"},{"id":11,"name":"Kannada"},{"id":1,"name":"Malayalam"},{"id":28,"name":"Manipuri"},{"id":8,"name":"Marathi"},{"id":29,"name":"Mizo"},{"id":17,"name":"Nepali"},{"id":9,"name":"Odia"},{"id":13,"name":"Odiya"},{"id":26,"name":"Oriya"},{"id":7,"name":"punjabi"},{"id":15,"name":"Punjabi"},{"id":25,"name":"Spanish"},{"id":5,"name":"Tamil"},{"id":4,"name":"Telugu"},{"id":18,"name":"Urdu"}],"categories":[{"id":40,"title":"Action"},{"id":19,"title":"Bengali"},{"id":25,"title":"Creative"},{"id":20,"title":"Default"},{"id":6,"title":"English"},{"id":17,"title":"Entertainment"},{"id":5,"title":"Hindi"},{"id":49,"title":"Horror"},{"id":9,"title":"Kannada"},{"id":18,"title":"Kids"},{"id":21,"title":"Malayalam"},{"id":254,"title":"MM"},{"id":13,"title":"Movies"},{"id":4,"title":"Music & Audio"},{"id":7,"title":"News"},{"id":1,"title":"News & Knowledge"},{"id":12,"title":"Odia"},{"id":15,"title":"Others"},{"id":16,"title":"Punjabi"},{"id":2,"title":"Regional"},{"id":3,"title":"Sports"},{"id":11,"title":"Tamil"},{"id":10,"title":"Telugu"}]}}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='4b6fab18-11cc-444f-856c-79c214373c03'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: switchDefaultProfile </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:12</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:13</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+683ms</span>
+												</div>
+												<div class='test-desc'>switchDefaultProfile</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>remove Profile</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:12</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/profiles/, SID=3000943856}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>API Response - {"code":0,"message":"Profile edited successfully.","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>Expected Keys - "data","message","code","Profile edited successfully."</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code","Profile edited successfully.",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>API Response : 
+{"code":0,"message":"Profile edited successfully.","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='b3f9f47c-3d9c-44d6-9d56-c9c5724f4aff'>
+											<div class='test-head'>
+												<span class='test-name'>TestProfileManagement :: removeProfileTest </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-05 17:23:13</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-05 17:23:13</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+340ms</span>
+												</div>
+												<div class='test-desc'>removeProfileTest</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>remove Profile</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/rest-api/api/v1/subscribers/3000943856/profiles/, SID=3000943856}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>API Response - {"code":11011,"message":"Default profile cannot be deleted","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>Expected Keys - "data","message","code"</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","message","code",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>API Response : 
+{"code":11011,"message":"Default profile cannot be deleted","data":{}}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>17:23:13</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id='test-details-wrapper' class='col _addedCell2'>
+					<div class='contents'>
+						<div class='card-panel details-view'>
+							<h5 class='details-name'></h5>
+							<div class='step-filters right'>
+								<span class='btn-floating btn-small waves-effect waves-light blue' status='info' alt='info' title='info'><i class='mdi-action-info-outline'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light green' status='pass' alt='pass' title='pass'><i class='mdi-action-check-circle'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red' status='fail' alt='fail' title='fail'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red darken-4' status='fatal' alt='fatal' title='fatal'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red lighten-2' status='error' alt='error' title='error'><i class='mdi-alert-error'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light orange' alt='warning' status='warning' title='warning'><i class='mdi-alert-warning'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light cyan' status='skip' alt='skip' title='skip'><i class='mdi-content-redo'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light grey darken-2' status='clear-step-filter' alt='Clear filters' title='Clear filters'><i class='mdi-content-clear'></i></span>
+							</div>
+							<div class='details-container'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /tests -->
+			
+			<!-- categories -->
+			<!-- /categories -->
+			
+			<!-- exceptions -->
+			<!-- /exceptions -->
+			
+			<!-- testrunner logs -->
+			<!-- /testrunner logs -->
+			
+		</div>
+		<!-- /container -->
+		
+		<!-- test dashboard counts setting -->
+		<div id='test-count-setting' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Configure Tests Count Setting</h5> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodes' class='with-gap'> 
+				<label for='parentWithoutNodes'>Parent Tests Only (Does not include child nodes in counts)</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodesAndNodes' class='with-gap'> 
+				<label for='parentWithoutNodesAndNodes'>Parent Tests Without Child Tests + Child Tests</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='childNodes' class='with-gap'> 
+				<label for='childNodes'>Child Tests Only</label> 
+			</div> 
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /test dashboard counts setting -->
+		
+		<!-- filter for step status -->
+		<div id='step-status-filter' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Select status</h5> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-pass'> 
+				<label for='step-dashboard-filter-pass'>Pass</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fail'> 
+				<label for='step-dashboard-filter-fail'>Fail</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fatal'> 
+				<label for='step-dashboard-filter-fatal'>Fatal</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-error'> 
+				<label for='step-dashboard-filter-error'>Error</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-warning'> 
+				<label for='step-dashboard-filter-warning'>Warning</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-skip'> 
+				<label for='step-dashboard-filter-skip'>Skipped</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-info'> 
+				<label for='step-dashboard-filter-info'>Info</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-unknown'> 
+				<label for='step-dashboard-filter-unknown'>Unknown</label> 
+			</div>
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /filter for step status -->
+		
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.js' type='text/javascript'></script>
+
+		<script>$(document).ready(function() { $('.logo span').html('ExtentReports'); });</script>
+		<script>
+				
+            
+                $(document).ready(function() {
+                    
+                });
+            
+        
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TataSky API Automation" parallel="none" verbose="1">
+    <test name="Profile Management" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestProfileManagement"></class>
+        </classes>
+    </test>
+    <!--<test name="Continue Watching" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestContinueWatching"></class>
+        </classes>
+    </test>
+    <test name="FIFA" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestFIFA"></class>
+        </classes>
+    </test>
+    <test name="Filter API" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestFilterAPI"></class>
+        </classes>
+    </test>
+    <test name="Home Screen" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestHomeScreen"></class>
+        </classes>
+    </test>
+    <test name="New Favorite" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestNewFavorite"></class>
+        </classes>
+    </test>
+    <test name="Login Management" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestLoginManagement"></class>
+        </classes>
+    </test>
+    <test name="Recommendation" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestRecommendation"></class>
+        </classes>
+    </test>
+    <test name="Search" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestSearchRegularKids"></class>
+        </classes>
+    </test>
+    <test name="Think Analysis" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TA"></class>
+        </classes>
+    </test>-->
+</suite>
+

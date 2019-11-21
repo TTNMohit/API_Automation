@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="ATV API TEST SUITE" parallel="none" verbose="1">
+    <test name="ATV Test" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.ATV_API.ATV"></class>
+        </classes>
+    </test>
+</suite>
+

@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			ExtentReports Library 2.41.1 | http://relevantcodes.com/extentreports-for-selenium/ | https://github.com/anshooarora/
+			Copyright (c) 2015, Anshoo Arora (Relevant Codes) | Copyrights licensed under the New BSD License | http://opensource.org/licenses/BSD-3-Clause
+			Documentation: http://extentreports.relevantcodes.com 
+		-->
+
+		<meta charset='UTF-8' /> 
+		<meta name='description' content='ExtentReports (by Anshoo Arora) is a reporting library for automation testing for .NET and Java. It creates detailed and beautiful HTML reports for modern browsers. ExtentReports shows test and step summary along with dashboards, system and environment details for quick analysis of your tests.' />
+		<meta name='robots' content='noodp, noydir' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<meta name='extentx' id='extentx' content='' />
+		
+		<title>
+				TATASKY API AUTOMATION
+		</title>
+		
+		
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports/45123d736a03aca0abc5c4fcf1e746fef49736fd/cdn/extent.css' type='text/css' rel='stylesheet' />
+		
+		<style>
+				
+            
+                
+            
+        
+		</style>
+	</head>
+	
+	
+	<body class='extent default standard hide-overflow'>
+		<!-- nav -->
+		<nav>
+			<div class='logo-container blue darken-2'>
+				<a class='logo-content' href='http://extentreports.relevantcodes.com'>
+					<span>ExtentReports</span>
+				</a>
+				<a href='#' data-activates='slide-out' class='button-collapse hide-on-large-only'><i class='mdi-navigation-apps'></i></a>
+			</div>
+			<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+				<li class='analysis waves-effect active'><a href='#!' class='test-view' onclick="_updateCurrentStage(0)"><i class='mdi-action-dashboard'></i>Test Details</a></li>
+				<li class='analysis waves-effect'>
+					<a href='#!' onclick="_updateCurrentStage(-1)" class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a>
+				</li>
+			</ul>
+			<span class='report-name'>TATASKY API AUTOMATION REPORT</span> <span class='report-headline'></span>
+			<ul class='right hide-on-med-and-down nav-right'>
+				<li class='theme-selector' alt='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");' title='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");'>
+					<i class='mdi-hardware-desktop-windows'></i>
+				</li>
+				<li>
+					<span class='suite-started-time'>2018-12-19 15:03:53</span>
+				</li>
+				<li>
+					<span>v2.41.1</span>
+				</li>
+			</ul>
+		</nav>
+		<!-- /nav -->
+		
+		<!-- container -->
+		<div class='container'>
+			
+			<!-- dashboard -->
+			<div id='dashboard-view' class='row'>
+				<div class='time-totals'>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-tests'> 
+							<span class='panel-name'>Total Tests</span> 
+							<span class='total-tests'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-steps'> 
+							<span class='panel-name'>Total Steps</span> 
+							<span class='total-steps'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-current'> 
+							<span class='panel-name'>Total Time Taken (Current Run)</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 0m 6s+548ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-overall'> 
+							<span class='panel-name'>Total Time Taken (Overall)</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 0m 6s+548ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-start-time'>
+						<div class='card accent green-accent'> 
+							<span class='panel-name'>Start</span> 
+							<span class='panel-lead suite-started-time'>2018-12-19 15:03:47</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-end-time'>
+						<div class='card accent pink-accent'> 
+							<span class='panel-name'>End</span> 
+							<span class='panel-lead suite-ended-time'>2018-12-19 15:03:53</span> 
+						</div> 
+					</div>
+				</div>
+				<div class='charts'>
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Tests View</span>
+							</div> 
+							<div class='panel-setting modal-trigger test-count-setting right'>
+								<a href='#test-count-setting'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='test-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-pass-count weight-normal'></span> test(s) passed</span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-fail-count weight-normal'></span> test(s) failed, <span class='t-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div> 
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Steps View</span>
+							</div> 
+							<div class='panel-setting modal-trigger step-status-filter right'>
+								<a href='#step-status-filter'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='step-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-pass-count weight-normal'></span> step(s) passed </span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-fail-count weight-normal'></span> step(s) failed, <span class='s-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div>
+					<div class='col s12 m12 l4 fh'> 
+						<div class='card-panel'> 
+							<span class='panel-name'>Pass Percentage</span> 
+							<span class='pass-percentage panel-lead'></span> 
+							<div class='progress light-blue lighten-3'> 
+								<div class='determinate light-blue'></div> 
+							</div> 
+						</div> 
+					</div>
+				</div>
+				<div class='system-view'>
+					<div class='col l4 m12 s12'>
+						<div class='card-panel'>
+							<span class='label info outline right'>Environment</span>
+							<table>
+								<thead>
+									<tr>
+										<th>Param</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td>User Name</td>
+											<td>Mohit</td>
+										</tr>
+										<tr>
+											<td>OS</td>
+											<td>Windows 7</td>
+										</tr>
+										<tr>
+											<td>Java Version</td>
+											<td>1.8.0_181</td>
+										</tr>
+										<tr>
+											<td>Host Name</td>
+											<td>Mohit-Goel</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /dashboard -->
+			
+			<!-- tests -->
+			<div id='test-view' class='row _addedTable'>
+				<div class='col _addedCell1'>
+					<div class='contents'>
+						<div class='card-panel heading'>
+							<h5>Tests</h5>
+						</div>
+						<div class='card-panel filters'>
+							<div>
+								<a class='dropdown-button btn-floating btn-small waves-effect waves-light grey tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+									<i class='mdi-action-reorder'></i>
+								</a>
+								<ul id='tests-toggle' class='dropdown-content'>
+									<li class='pass'><a href='#!'>Pass</a></li>
+									<li class='fail'><a href='#!'>Fail</a></li>
+									<li class='skip'><a href='#!'>Skip</a></li>
+									<li class='divider'></li>
+									<li class='clear'><a href='#!'>Clear Filters</a></li>
+								</ul>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+									<i class='mdi-navigation-close'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='enableDashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+									<i class='mdi-action-track-changes'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light blue enabled' id='refreshCharts' alt='Refresh Charts on Filters' title='Refresh Charts on Filters'>
+									<i class='mdi-navigation-refresh'></i>
+								</a>
+							</div>
+							<div class='search' alt='Search Tests' title='Search Tests'>
+								<div class='input-field left'>
+									<input id='searchTests' type='text' class='validate' placeholder='Search Tests...'>
+								</div>
+								<a href="#" class='btn-floating btn-small waves-effect waves-light grey'>
+									<i class='mdi-action-search'></i>
+								</a>
+							</div>
+						</div>
+						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
+							<div class='wrapper'>
+								<ul id='test-collection' class='test-collection'>
+										<li class='collection-item test displayed active pass ' extentid='2d2261c6-fafe-4db1-a6e2-5fa9f85d5121'>
+											<div class='test-head'>
+												<span class='test-name'>TestSearchRegularKids :: globalV2Search </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-19 15:03:47</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-19 15:03:51</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 4s+425ms</span>
+												</div>
+												<div class='test-desc'>globalV2Search</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:47</td>
+																	<td class='step-details'>Global V2 Search for showType All,Movies,Tv Shows, Shorts</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:47</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/portal-search/pub/api/v2/globalSearch, queryString=sony}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:51</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","items","id","availableShowTypes","message","code",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:51</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:51</td>
+																	<td class='step-details'>API Response : 
+{"data":{"items":[{"id":2,"title":"Live","sectionType":"RAIL","layoutType":"LANDSCAPE","contentResults":[{"id":75,"title":"Dream Team TV 2018","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/9AAD7F6F6024CF83E7729A1DEE5762C65DA7FCC4P.jpg","contentType":"LIVE_EVENT","subTitles":["Other Sports"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-372-j3ujvbgg-v1/imageContent-372-j3ujvbgg-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000129","1000000014","1000000037","1000000274","1000000003","1000000036"],"epgState":"ON_AIR","channelId":75,"provider":"SONY ESPN HD"},{"id":48,"title":"Movie - Kapoor & Sons","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/2EFC54728915B8DE10E3AD6F0E6D8146E422DAEEZ.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-228-j3tuiuow-v1/imageContent-228-j3tuiuow-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000004","1000000021","1000000172","1000000102","1000000028","1000000037","1000000036","1000000001","1000000029","1000000122"],"epgState":"ON_AIR","channelId":48,"provider":"MTV"},{"id":211,"title":"Sing A Song","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/8EE384E2293BC597BB288DC6B481DDDAE024EFB4W.jpg","contentType":"LIVE_EVENT","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"ON_AIR","channelId":211,"provider":"Jaya Max"},{"id":122,"title":"Son Of The Mask","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/965BB707ACE24F99EAEA6C321ED50F0697142ABD1.jpg","contentType":"LIVE_EVENT","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-450-j3wx85dc-v1/imageContent-450-j3wx85dc-m1.png","airedDate":1545206700000,"contractName":"SUBSCRIPTION","entitlements":["1000000029","1000000037","1000000028","1000000286","1000000095","1000000356","1000000001","1000000178"],"epgState":"ON_AIR","channelId":122,"provider":"PIX HD"},{"id":661,"title":"Son Of The Mask","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/965BB707ACE24F99EAEA6C321ED50F0697142ABD1.jpg","contentType":"LIVE_EVENT","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-6610-jof92oe8-v2/imageContent-6610-jof92oe8-m2.png","airedDate":1545206700000,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000002"],"epgState":"ON_AIR","channelId":661,"provider":"PIX"},{"id":69,"title":"Patiala Babes","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/01BA176AF3828BC41A2EAEDC7AF378F0FAD7E8743.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-375-j3ujvejk-v1/imageContent-375-j3ujvejk-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000016","1000000367","1000000036","1000000423","1000000012","1000000097","1000000353","1000000269","1000000011","1000000368","1000000272","1000000181","1000000144","1000000029","1000000365","1000000378","1000000007","1000000118","1000000280"],"epgState":"ON_AIR","channelId":69,"provider":"SONY HD"},{"id":61,"title":"Mix Adda","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/776E6929D2741E8AC1475C0C701F26A39A13704DC.jpg","contentType":"LIVE_EVENT","subTitles":["Bollywood"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"ON_AIR","channelId":61,"provider":"SONY MIX"},{"id":55,"title":"Hindi Medium","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/A8E38C72D81FF750A298C26513AC4AF6B2098132S.jpg","contentType":"LIVE_EVENT","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-246-j3udep88-v1/imageContent-246-j3udep88-m1.png","airedDate":1545205800000,"contractName":"SUBSCRIPTION","entitlements":["1000000379","1000000099","1000000037","1000000001","1000000271","1000000021","1000000036","1000000372","1000000029","1000000272","1000000353"],"epgState":"ON_AIR","channelId":55,"provider":"Sony Wah"},{"id":67,"title":"Yevadu 2","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/EFE87A7AEBA2BF42769B2420B79AEEE05F44D9E7Q.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-366-j3ujtzm8-v1/imageContent-366-j3ujtzm8-m1.png","airedDate":1545203760000,"contractName":"SUBSCRIPTION","entitlements":["1000000369","1000000029","1000000037","1000000365","1000000021","1000000099","1000000016","1000000368","1000000036","1000000378","1000000004","1000000001","1000000367","1000000171"],"epgState":"ON_AIR","channelId":67,"provider":"SONY  MAX"},{"id":114,"title":"LCTV 2018","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/EBDDC903A7CE495EF587C8B6467B057449C5CA4FC.jpg","contentType":"LIVE_EVENT","subTitles":["Athletics"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-426-j3woujcg-v1/imageContent-426-j3woujcg-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000381","1000000238","1000000001","1000000011","1000000002","1000000383","1000000379"],"epgState":"ON_AIR","channelId":114,"provider":"Ten 1 HD"}],"totalCount":16,"offset":0,"size":10},{"id":3,"title":"On Demand","sectionType":"RAIL","layoutType":"LANDSCAPE","contentResults":[{"id":3971196,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181212T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544585400000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3971201,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181212T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544607000000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987442,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181213T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544693400000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987443,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181213T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544671800000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987650,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181214T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544758200000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987653,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181214T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544779800000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987912,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181215T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544866200000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987927,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181215T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544844600000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987998,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181216T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544931000000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3988004,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181216T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544952600000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"}],"totalCount":11,"offset":0,"size":10},{"id":4,"title":"Channel","sectionType":"RAIL","layoutType":"LANDSCAPE","contentResults":[{"id":634,"title":"Sony ESPN","image":"http://tank.tskytech.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12269-j9qxzr88-v1/imageContent-12269-j9qxzr88-m1.jpg","contentType":"LIVE","subTitles":["English"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000743","1000000011","1000000041","1000000356","1000000718","1000000042","1000000087","1000000002","1000000753"],"provider":"Tatasky"},{"id":69,"title":"SONY HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-374-j3ujvejk-v1/imageContent-374-j3ujvejk-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000016","1000000367","1000000036","1000000423","1000000012","1000000097","1000000353","1000000269","1000000011","1000000368","1000000272","1000000181","1000000144","1000000029","1000000365","1000000378","1000000007","1000000118","1000000280"],"provider":"Tatasky"},{"id":55,"title":"Sony Wah","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-245-j3udep88-v1/imageContent-245-j3udep88-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000379","1000000099","1000000037","1000000001","1000000271","1000000021","1000000036","1000000372","1000000029","1000000272","1000000353"],"provider":"Sony Wah"},{"id":61,"title":"SONY MIX","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-266-j3ugy2vk-v1/imageContent-266-j3ugy2vk-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"provider":"SONY MIX"},{"id":67,"title":"SONY  MAX","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-365-j3ujtzm8-v1/imageContent-365-j3ujtzm8-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000369","1000000029","1000000037","1000000365","1000000021","1000000099","1000000016","1000000368","1000000036","1000000378","1000000004","1000000001","1000000367","1000000171"],"provider":"SONY  MAX"},{"id":74,"title":"SONY AATH","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-368-j3uju48w-v1/imageContent-368-j3uju48w-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000375","1000000180","1000000103","1000000001","1000000021","1000000029","1000000016"],"provider":"SONY AATH"},{"id":56,"title":"SONY  MAX 2","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-251-j3udg80g-v1/imageContent-251-j3udg80g-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000099","1000000021","1000000265","1000000037","1000000001","1000000029","1000000036","1000000004"],"provider":"SONY  MAX 2"},{"id":54,"title":"SONY ROX HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-248-j3udfq9k-v1/imageContent-248-j3udfq9k-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000370","1000000026","1000000292","1000000122","1000000011","1000000253","1000000029","1000000036","1000000001","1000000028","1000000102"],"provider":"SONY ROX HD"},{"id":75,"title":"SONY ESPN HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-371-j3ujvbgg-v1/imageContent-371-j3ujvbgg-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000129","1000000014","1000000037","1000000274","1000000003","1000000036"],"provider":"SONY ESPN HD"},{"id":124,"title":"SONY SIX HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-455-j3wzyajs-v1/imageContent-455-j3wzyajs-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"provider":"SONY SIX HD"}],"totalCount":15,"offset":0,"size":10},{"id":1,"title":"Remote Record","sectionType":"REMOTE_RECORD","layoutType":"LANDSCAPE","contentResults":[{"id":4056508,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545226200000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4080139,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545312600000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4100762,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545399000000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4119410,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545485400000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4136959,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545571800000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4141163,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-252-j3udg80g-v1/imageContent-252-j3udg80g-m1.png","airedDate":1545257940000,"contractName":"SUBSCRIPTION","entitlements":["1000000099","1000000021","1000000265","1000000037","1000000001","1000000029","1000000036","1000000004"],"epgState":"FORWARD","channelId":56,"provider":"SONY  MAX 2","channelOtt":true},{"id":4080163,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545291000000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true},{"id":4100790,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545357600000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true},{"id":4100777,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545377400000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true},{"id":4119453,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545479100000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true}],"totalCount":1930,"offset":0,"size":10}],"noResultSuggestions":[],"availableShowTypes":["Movies","TV Shows"]},"message":"SUCCESS","code":0}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:03:51</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5cf33a62-4b75-4cd2-8d00-0f1f9ef958a3'>
+											<div class='test-head'>
+												<span class='test-name'>TestSearchRegularKids :: globalV2Search </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-19 15:03:51</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-19 15:03:52</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+588ms</span>
+												</div>
+												<div class='test-desc'>globalV2Search</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:51</td>
+																	<td class='step-details'>Global V2 Search for showType All,Movies,Tv Shows, Shorts</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:51</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/portal-search/pub/api/v2/globalSearch, queryString=sony}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","items","id","availableShowTypes","message","code",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>API Response : 
+{"data":{"items":[{"id":2,"title":"Live","sectionType":"RAIL","layoutType":"LANDSCAPE","contentResults":[{"id":48,"title":"Movie - Kapoor & Sons","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/2EFC54728915B8DE10E3AD6F0E6D8146E422DAEEZ.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-228-j3tuiuow-v1/imageContent-228-j3tuiuow-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000004","1000000021","1000000172","1000000102","1000000028","1000000037","1000000036","1000000001","1000000029","1000000122"],"epgState":"ON_AIR","channelId":48,"provider":"MTV"},{"id":122,"title":"Son Of The Mask","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/965BB707ACE24F99EAEA6C321ED50F0697142ABD1.jpg","contentType":"LIVE_EVENT","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-450-j3wx85dc-v1/imageContent-450-j3wx85dc-m1.png","airedDate":1545206700000,"contractName":"SUBSCRIPTION","entitlements":["1000000029","1000000037","1000000028","1000000286","1000000095","1000000356","1000000001","1000000178"],"epgState":"ON_AIR","channelId":122,"provider":"PIX HD"},{"id":661,"title":"Son Of The Mask","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/965BB707ACE24F99EAEA6C321ED50F0697142ABD1.jpg","contentType":"LIVE_EVENT","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-6610-jof92oe8-v2/imageContent-6610-jof92oe8-m2.png","airedDate":1545206700000,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000002"],"epgState":"ON_AIR","channelId":661,"provider":"PIX"},{"id":55,"title":"Hindi Medium","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/A8E38C72D81FF750A298C26513AC4AF6B2098132S.jpg","contentType":"LIVE_EVENT","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-246-j3udep88-v1/imageContent-246-j3udep88-m1.png","airedDate":1545205800000,"contractName":"SUBSCRIPTION","entitlements":["1000000379","1000000099","1000000037","1000000001","1000000271","1000000021","1000000036","1000000372","1000000029","1000000272","1000000353"],"epgState":"ON_AIR","channelId":55,"provider":"Sony Wah"},{"id":67,"title":"Yevadu 2","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/EFE87A7AEBA2BF42769B2420B79AEEE05F44D9E7Q.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-366-j3ujtzm8-v1/imageContent-366-j3ujtzm8-m1.png","airedDate":1545203760000,"contractName":"SUBSCRIPTION","entitlements":["1000000369","1000000029","1000000037","1000000365","1000000021","1000000099","1000000016","1000000368","1000000036","1000000378","1000000004","1000000001","1000000367","1000000171"],"epgState":"ON_AIR","channelId":67,"provider":"SONY  MAX"},{"id":514,"title":"Malamaal Weekly","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/708D252AAFD2D0DD2CB922E58A2354827B0F704F9.jpg","contentType":"LIVE_EVENT","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-4900-j98qollc-v1/imageContent-4900-j98qollc-m1.png","airedDate":1545210000000,"contractName":"SUBSCRIPTION","entitlements":["1000000381","1000000424","1000000011"],"epgState":"ON_AIR","channelId":514,"provider":"Multiplex"},{"id":73,"title":"The Assassination Of Jesse James By The Coward Robert Ford","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/0D9BD5B3BAA0FDE6E3564FD63B21DD7C11E09F4DI.jpg","contentType":"LIVE_EVENT","subTitles":["Biography"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-378-j3ujvguw-v1/imageContent-378-j3ujvguw-m1.png","airedDate":1545208920000,"contractName":"SUBSCRIPTION","entitlements":["1000000003","1000000095","1000000324","1000000129","1000000001","1000000037"],"epgState":"ON_AIR","channelId":73,"provider":"SONY Le Plex HD"},{"id":20,"title":"Yevadu 2","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/EFE87A7AEBA2BF42769B2420B79AEEE05F44D9E7Q.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-94-j3o74cco-v1/imageContent-94-j3o74cco-m1.png","airedDate":1545208680000,"contractName":"SUBSCRIPTION","entitlements":["1000000369","1000000171","1000000365","1000000099","1000000001","1000000378","1000000036","1000000368","1000000029","1000000309","1000000367","1000000016","1000000037","1000000021"],"epgState":"ON_AIR","channelId":20,"provider":"SONY MAX HD"},{"id":56,"title":"Aasha","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/974CD0838B844238FDEB76C1F3EE9441F9388C77H.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-252-j3udg80g-v1/imageContent-252-j3udg80g-m1.png","airedDate":1545203400000,"contractName":"SUBSCRIPTION","entitlements":["1000000099","1000000021","1000000265","1000000037","1000000001","1000000029","1000000036","1000000004"],"epgState":"ON_AIR","channelId":56,"provider":"SONY  MAX 2"}],"totalCount":9,"offset":0,"size":10},{"id":1,"title":"Remote Record","sectionType":"REMOTE_RECORD","layoutType":"LANDSCAPE","contentResults":[{"id":4046043,"title":"Kapoor & Sons","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/288x216/741DB9A532E7FBE4AB1ABE186EAF6D2BAD9E07B3W.jpg","contentType":"FORWARD_EPG","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-4604-j98dvs34-v1/imageContent-4604-j98dvs34-m1.png","airedDate":1545213960000,"contractName":"SUBSCRIPTION","entitlements":["1000000424"],"epgState":"FORWARD","channelId":401,"provider":"UTV HD","channelOtt":false},{"id":4133000,"title":"Seventh Son","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/6C5ABD5C3807674F5A8CAFFFD665847E6378A7C04.jpg","contentType":"FORWARD_EPG","subTitles":["Fantasy"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-4963-j98qvrb4-v1/imageContent-4963-j98qvrb4-m1.png","airedDate":1545588600000,"contractName":"SUBSCRIPTION","entitlements":["1000000424"],"epgState":"FORWARD","channelId":492,"provider":"Movies Now2 HD","channelOtt":false},{"id":4133027,"title":"Seventh Son","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/6C5ABD5C3807674F5A8CAFFFD665847E6378A7C04.jpg","contentType":"FORWARD_EPG","subTitles":["Fantasy"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-610-j40wkccg-v1/imageContent-610-j40wkccg-m1.png","airedDate":1545588600000,"contractName":"SUBSCRIPTION","entitlements":["1000000356","1000000037","1000000346","1000000001","1000000095","1000000129","1000000003"],"epgState":"FORWARD","channelId":167,"provider":"Movies Now 2","channelOtt":true},{"id":4052892,"title":"The Song Of Scorpions","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/288x216/2224F71E5016008C88524269B3F0ABABEB4812E84.jpg","contentType":"FORWARD_EPG","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-6144-jivi9wxk-v1/imageContent-6144-jivi9wxk-m2.png","airedDate":1545212700000,"contractName":"SUBSCRIPTION","entitlements":["1000000424"],"epgState":"FORWARD","channelId":633,"provider":"Mumbai Festival HD","channelOtt":true},{"id":4052881,"title":"The Song Of Scorpions","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/288x216/2224F71E5016008C88524269B3F0ABABEB4812E84.jpg","contentType":"FORWARD_EPG","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-6144-jivi9wxk-v1/imageContent-6144-jivi9wxk-m2.png","airedDate":1545233400000,"contractName":"SUBSCRIPTION","entitlements":["1000000424"],"epgState":"FORWARD","channelId":633,"provider":"Mumbai Festival HD","channelOtt":true},{"id":4124757,"title":"Bank Chor","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/B188F7701FC03C02F95EE6290A41F8C0AD00043DG.jpg","contentType":"FORWARD_EPG","subTitles":["Comedy"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-366-j3ujtzm8-v1/imageContent-366-j3ujtzm8-m1.png","airedDate":1545213420000,"contractName":"SUBSCRIPTION","entitlements":["1000000369","1000000029","1000000037","1000000365","1000000021","1000000099","1000000016","1000000368","1000000036","1000000378","1000000004","1000000001","1000000367","1000000171"],"epgState":"FORWARD","channelId":67,"provider":"SONY  MAX","channelOtt":true},{"id":4124746,"title":"Simha","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/35FD31229F0CEBD66A03592513AA279ACA363063D.jpg","contentType":"FORWARD_EPG","subTitles":["Action"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-246-j3udep88-v1/imageContent-246-j3udep88-m1.png","airedDate":1545216120000,"contractName":"SUBSCRIPTION","entitlements":["1000000379","1000000099","1000000037","1000000001","1000000271","1000000021","1000000036","1000000372","1000000029","1000000272","1000000353"],"epgState":"FORWARD","channelId":55,"provider":"Sony Wah","channelOtt":true},{"id":4124760,"title":"Ambala","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/BB54DEC03A1EF7EB9ADEA144F41A78B3BC139D9AM.jpg","contentType":"FORWARD_EPG","subTitles":["Action"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-366-j3ujtzm8-v1/imageContent-366-j3ujtzm8-m1.png","airedDate":1545222780000,"contractName":"SUBSCRIPTION","entitlements":["1000000369","1000000029","1000000037","1000000365","1000000021","1000000099","1000000016","1000000368","1000000036","1000000378","1000000004","1000000001","1000000367","1000000171"],"epgState":"FORWARD","channelId":67,"provider":"SONY  MAX","channelOtt":true},{"id":4124741,"title":"Dangerous Khiladi 4","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/D1BD7E9718C10025F65157C23F2CA41E26F562552.jpg","contentType":"FORWARD_EPG","subTitles":["Romance"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-246-j3udep88-v1/imageContent-246-j3udep88-m1.png","airedDate":1545225900000,"contractName":"SUBSCRIPTION","entitlements":["1000000379","1000000099","1000000037","1000000001","1000000271","1000000021","1000000036","1000000372","1000000029","1000000272","1000000353"],"epgState":"FORWARD","channelId":55,"provider":"Sony Wah","channelOtt":true},{"id":4105197,"title":"Movie - Madhana Manjari","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/288x216/3F1FFB144E446F0DACBF1640556DA0283A246AE8Q.jpg","contentType":"FORWARD_EPG","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/Channel/imageContent-4882-j98qln40-v1/imageContent-4882-j98qln40-m1.png","airedDate":1545228000000,"contractName":"SUBSCRIPTION","entitlements":["1000000424"],"epgState":"FORWARD","channelId":483,"provider":"Murasu TV","channelOtt":false}],"totalCount":235,"offset":0,"size":10}],"noResultSuggestions":[],"availableShowTypes":["Movies"]},"message":"SUCCESS","code":0}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='d91bf132-4bc7-432a-870a-3e618f7cf247'>
+											<div class='test-head'>
+												<span class='test-name'>TestSearchRegularKids :: globalV2Search </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-19 15:03:52</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-19 15:03:52</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+472ms</span>
+												</div>
+												<div class='test-desc'>globalV2Search</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>Global V2 Search for showType All,Movies,Tv Shows, Shorts</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/portal-search/pub/api/v2/globalSearch, queryString=sony}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","items","id","availableShowTypes","message","code",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>API Response : 
+{"data":{"items":[{"id":2,"title":"Live","sectionType":"RAIL","layoutType":"LANDSCAPE","contentResults":[{"id":75,"title":"Dream Team TV 2018","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/9AAD7F6F6024CF83E7729A1DEE5762C65DA7FCC4P.jpg","contentType":"LIVE_EVENT","subTitles":["Other Sports"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-372-j3ujvbgg-v1/imageContent-372-j3ujvbgg-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000129","1000000014","1000000037","1000000274","1000000003","1000000036"],"epgState":"ON_AIR","channelId":75,"provider":"SONY ESPN HD"},{"id":211,"title":"Sing A Song","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/8EE384E2293BC597BB288DC6B481DDDAE024EFB4W.jpg","contentType":"LIVE_EVENT","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"ON_AIR","channelId":211,"provider":"Jaya Max"},{"id":69,"title":"Patiala Babes","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/01BA176AF3828BC41A2EAEDC7AF378F0FAD7E8743.jpg","contentType":"LIVE_EVENT","subTitles":["Drama"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-375-j3ujvejk-v1/imageContent-375-j3ujvejk-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000016","1000000367","1000000036","1000000423","1000000012","1000000097","1000000353","1000000269","1000000011","1000000368","1000000272","1000000181","1000000144","1000000029","1000000365","1000000378","1000000007","1000000118","1000000280"],"epgState":"ON_AIR","channelId":69,"provider":"SONY HD"},{"id":61,"title":"Mix Adda","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/776E6929D2741E8AC1475C0C701F26A39A13704DC.jpg","contentType":"LIVE_EVENT","subTitles":["Bollywood"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"ON_AIR","channelId":61,"provider":"SONY MIX"},{"id":114,"title":"LCTV 2018","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/EBDDC903A7CE495EF587C8B6467B057449C5CA4FC.jpg","contentType":"LIVE_EVENT","subTitles":["Athletics"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-426-j3woujcg-v1/imageContent-426-j3woujcg-m1.png","airedDate":1545211800000,"contractName":"SUBSCRIPTION","entitlements":["1000000381","1000000238","1000000001","1000000011","1000000002","1000000383","1000000379"],"epgState":"ON_AIR","channelId":114,"provider":"Ten 1 HD"},{"id":124,"title":"KFC BBL 2018 Live","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/0D9D4CA84E3B89F961DC10465EBC4745A358CF3AU.jpg","contentType":"LIVE_EVENT","subTitles":["Cricket"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545207300000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"ON_AIR","channelId":124,"provider":"SONY SIX HD"},{"id":54,"title":"Rox Lounge","image":"http://imagestatasky.whatsonindia.com/dasimages/Landscape/1280x720/19F2D06372D12A40AE3E4C393CDA0DDD20C3A8A2K.jpg","contentType":"LIVE_EVENT","subTitles":["Bollywood"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-249-j3udfq9k-v1/imageContent-249-j3udfq9k-m1.png","airedDate":1545201000000,"contractName":"SUBSCRIPTION","entitlements":["1000000370","1000000026","1000000292","1000000122","1000000011","1000000253","1000000029","1000000036","1000000001","1000000028","1000000102"],"epgState":"ON_AIR","channelId":54,"provider":"SONY ROX HD"}],"totalCount":7,"offset":0,"size":10},{"id":3,"title":"On Demand","sectionType":"RAIL","layoutType":"LANDSCAPE","contentResults":[{"id":3971196,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181212T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544585400000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3971201,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181212T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544607000000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987442,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181213T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544693400000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987443,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181213T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544671800000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987650,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181214T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544758200000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987653,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181214T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544779800000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987912,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181215T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544866200000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987927,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181215T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544844600000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3987998,"title":"Song For You","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181216T033500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Music"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544931000000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"},{"id":3988004,"title":"Sing A Song","image":"http://tank.tskytech.com/jumpstart/Temp/cdn/HLS/catchupImages/350/2000_20181216T093500.000Z.jpg","contentType":"CATCH_UP","subTitles":["Chat Show"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-755-j42apgww-v1/imageContent-755-j42apgww-m1.png","airedDate":1544952600000,"contractName":"SUBSCRIPTION","entitlements":["1000000123","1000000110","1000000028","1000000118","1000000027","1000000029","1000000135","1000000351","1000000001","1000000011"],"epgState":"REVERSE","channelId":211,"provider":"Jaya Max"}],"totalCount":11,"offset":0,"size":10},{"id":4,"title":"Channel","sectionType":"RAIL","layoutType":"LANDSCAPE","contentResults":[{"id":634,"title":"Sony ESPN","image":"http://tank.tskytech.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12269-j9qxzr88-v1/imageContent-12269-j9qxzr88-m1.jpg","contentType":"LIVE","subTitles":["English"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000743","1000000011","1000000041","1000000356","1000000718","1000000042","1000000087","1000000002","1000000753"],"provider":"Tatasky"},{"id":69,"title":"SONY HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-374-j3ujvejk-v1/imageContent-374-j3ujvejk-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000016","1000000367","1000000036","1000000423","1000000012","1000000097","1000000353","1000000269","1000000011","1000000368","1000000272","1000000181","1000000144","1000000029","1000000365","1000000378","1000000007","1000000118","1000000280"],"provider":"Tatasky"},{"id":55,"title":"Sony Wah","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-245-j3udep88-v1/imageContent-245-j3udep88-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000379","1000000099","1000000037","1000000001","1000000271","1000000021","1000000036","1000000372","1000000029","1000000272","1000000353"],"provider":"Sony Wah"},{"id":61,"title":"SONY MIX","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-266-j3ugy2vk-v1/imageContent-266-j3ugy2vk-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"provider":"SONY MIX"},{"id":67,"title":"SONY  MAX","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-365-j3ujtzm8-v1/imageContent-365-j3ujtzm8-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000369","1000000029","1000000037","1000000365","1000000021","1000000099","1000000016","1000000368","1000000036","1000000378","1000000004","1000000001","1000000367","1000000171"],"provider":"SONY  MAX"},{"id":74,"title":"SONY AATH","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-368-j3uju48w-v1/imageContent-368-j3uju48w-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000375","1000000180","1000000103","1000000001","1000000021","1000000029","1000000016"],"provider":"SONY AATH"},{"id":56,"title":"SONY  MAX 2","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-251-j3udg80g-v1/imageContent-251-j3udg80g-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000099","1000000021","1000000265","1000000037","1000000001","1000000029","1000000036","1000000004"],"provider":"SONY  MAX 2"},{"id":54,"title":"SONY ROX HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-248-j3udfq9k-v1/imageContent-248-j3udfq9k-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000370","1000000026","1000000292","1000000122","1000000011","1000000253","1000000029","1000000036","1000000001","1000000028","1000000102"],"provider":"SONY ROX HD"},{"id":75,"title":"SONY ESPN HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-371-j3ujvbgg-v1/imageContent-371-j3ujvbgg-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000001","1000000129","1000000014","1000000037","1000000274","1000000003","1000000036"],"provider":"SONY ESPN HD"},{"id":124,"title":"SONY SIX HD","image":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-455-j3wzyajs-v1/imageContent-455-j3wzyajs-m1.jpg","contentType":"LIVE","subTitles":["Hindi"],"position":0,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"provider":"SONY SIX HD"}],"totalCount":15,"offset":0,"size":10},{"id":1,"title":"Remote Record","sectionType":"REMOTE_RECORD","layoutType":"LANDSCAPE","contentResults":[{"id":4056508,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545226200000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4080139,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545312600000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4100762,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545399000000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4119410,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545485400000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4136959,"title":"Macho Hint Fashion Hour","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/25425BDF22965809DA1C3B2BE8F95E7FB35D9CDFC.jpg","contentType":"FORWARD_EPG","subTitles":["Lifestyle"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-267-j3ugy2vk-v1/imageContent-267-j3ugy2vk-m1.png","airedDate":1545571800000,"contractName":"SUBSCRIPTION","entitlements":["1000000002","1000000021","1000000004","1000000034","1000000119","1000000129","1000000037","1000000122","1000000001","1000000003","1000000036","1000000102"],"epgState":"FORWARD","channelId":61,"provider":"SONY MIX","channelOtt":true},{"id":4141163,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-252-j3udg80g-v1/imageContent-252-j3udg80g-m1.png","airedDate":1545257940000,"contractName":"SUBSCRIPTION","entitlements":["1000000099","1000000021","1000000265","1000000037","1000000001","1000000029","1000000036","1000000004"],"epgState":"FORWARD","channelId":56,"provider":"SONY  MAX 2","channelOtt":true},{"id":4080163,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545291000000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true},{"id":4100790,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545357600000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true},{"id":4100777,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545377400000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true},{"id":4119453,"title":"Filler","image":"http://imagestatasky.whatsonindia.com/dasimages/landscape/1280x720/873D104AE21420412B0EC626A89C03A3500CE207R.jpg","contentType":"FORWARD_EPG","subTitles":["Others"],"position":0,"logo":"http://tank.tskytech.com/Jumpstart/Temp/cdn/HLS/Channel/imageContent-456-j3wzyajs-v1/imageContent-456-j3wzyajs-m1.png","airedDate":1545479100000,"contractName":"SUBSCRIPTION","entitlements":["1000000383","1000000136","1000000011","1000000037","1000000129","1000000379","1000000036"],"epgState":"FORWARD","channelId":124,"provider":"SONY SIX HD","channelOtt":true}],"totalCount":1695,"offset":0,"size":10}],"noResultSuggestions":[],"availableShowTypes":["TV Shows"]},"message":"SUCCESS","code":0}</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>Test passed</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active fail ' extentid='80447c04-c67f-439e-a250-84dec2102766'>
+											<div class='test-head'>
+												<span class='test-name'>TestSearchRegularKids :: globalV2Search </span>
+												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2018-12-19 15:03:52</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2018-12-19 15:03:53</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 0s+355ms</span>
+												</div>
+												<div class='test-desc'>globalV2Search</div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>Global V2 Search for showType All,Movies,Tv Shows, Shorts</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:52</td>
+																	<td class='step-details'>API Path and Parameters - {ENDPOINT=/portal-search/pub/api/v2/globalSearch, queryString=sony}</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:53</td>
+																	<td class='step-details'>KEY(S) PRESENT:  "data","items","availableShowTypes","message","code",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:53</td>
+																	<td class='step-details'>KEY(S) NOT PRESENT:  
+"id",</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>15:03:53</td>
+																	<td class='step-details'>API Response : 
+{"data":{"items":[],"noResultSuggestions":["colors","ZeeTV"],"availableShowTypes":[]},"message":"SUCCESS","code":0}</td>
+																</tr>
+																<tr>
+																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
+																	<td class='timestamp'>15:03:53</td>
+																	<td class='step-details'>java.lang.AssertionError: expected [true] but found [false]</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id='test-details-wrapper' class='col _addedCell2'>
+					<div class='contents'>
+						<div class='card-panel details-view'>
+							<h5 class='details-name'></h5>
+							<div class='step-filters right'>
+								<span class='btn-floating btn-small waves-effect waves-light blue' status='info' alt='info' title='info'><i class='mdi-action-info-outline'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light green' status='pass' alt='pass' title='pass'><i class='mdi-action-check-circle'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red' status='fail' alt='fail' title='fail'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red darken-4' status='fatal' alt='fatal' title='fatal'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red lighten-2' status='error' alt='error' title='error'><i class='mdi-alert-error'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light orange' alt='warning' status='warning' title='warning'><i class='mdi-alert-warning'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light cyan' status='skip' alt='skip' title='skip'><i class='mdi-content-redo'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light grey darken-2' status='clear-step-filter' alt='Clear filters' title='Clear filters'><i class='mdi-content-clear'></i></span>
+							</div>
+							<div class='details-container'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /tests -->
+			
+			<!-- categories -->
+			<!-- /categories -->
+			
+			<!-- exceptions -->
+			<!-- /exceptions -->
+			
+			<!-- testrunner logs -->
+			<!-- /testrunner logs -->
+			
+		</div>
+		<!-- /container -->
+		
+		<!-- test dashboard counts setting -->
+		<div id='test-count-setting' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Configure Tests Count Setting</h5> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodes' class='with-gap'> 
+				<label for='parentWithoutNodes'>Parent Tests Only (Does not include child nodes in counts)</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodesAndNodes' class='with-gap'> 
+				<label for='parentWithoutNodesAndNodes'>Parent Tests Without Child Tests + Child Tests</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='childNodes' class='with-gap'> 
+				<label for='childNodes'>Child Tests Only</label> 
+			</div> 
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /test dashboard counts setting -->
+		
+		<!-- filter for step status -->
+		<div id='step-status-filter' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Select status</h5> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-pass'> 
+				<label for='step-dashboard-filter-pass'>Pass</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fail'> 
+				<label for='step-dashboard-filter-fail'>Fail</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fatal'> 
+				<label for='step-dashboard-filter-fatal'>Fatal</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-error'> 
+				<label for='step-dashboard-filter-error'>Error</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-warning'> 
+				<label for='step-dashboard-filter-warning'>Warning</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-skip'> 
+				<label for='step-dashboard-filter-skip'>Skipped</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-info'> 
+				<label for='step-dashboard-filter-info'>Info</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-unknown'> 
+				<label for='step-dashboard-filter-unknown'>Unknown</label> 
+			</div>
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /filter for step status -->
+		
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.js' type='text/javascript'></script>
+
+		<script>$(document).ready(function() { $('.logo span').html('ExtentReports'); });</script>
+		<script>
+				
+            
+                $(document).ready(function() {
+                    
+                });
+            
+        
+		</script>
+	</body>
+</html>

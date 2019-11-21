@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TA API Test Suite" parallel="none" verbose="1">
+    <test name="TA Test" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.TA_API.TA"></class>
+        </classes>
+    </test>
+</suite>
+

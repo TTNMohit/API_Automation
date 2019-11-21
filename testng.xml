@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TataSky API Automation" parallel="none" verbose="1">
+    <test name="All_Testsuite" preserve-order="true">
+        <classes>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestSearchRegularKids"></class>
+           <!-- <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestProfileManagement"></class>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestContinueWatching"></class>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestLoginManagement"></class>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestHomeScreen"></class>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestFilterAPI"></class>
+            &lt;!&ndash;<class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestFIFA"></class>&ndash;&gt;
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestNewFavorite"></class>
+            <class name="com.tatasky.api_automation.OTT_FRONTEND_API.TestSearchRegularKids"></class>-->
+        </classes>
+    </test>
+</suite>
+
